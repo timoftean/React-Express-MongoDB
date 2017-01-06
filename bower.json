@@ -1,0 +1,20 @@
+{
+  "name": "react-express",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Timofte Alexandru <timofte.alexandru05@yahoo.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.4.1"
+  }
+}
