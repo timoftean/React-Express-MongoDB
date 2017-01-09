@@ -1,6 +1,8 @@
 /** @jsx React.DOM */
 var React = require('react');
 var GroceryItem = require('./GroceryItem.jsx');
+var GroceryListAdditem = require('./GroceryListAddItem.jsx');
+
 module.exports = React.createClass({
     render:function(){
         return (
@@ -15,6 +17,7 @@ module.exports = React.createClass({
                         })
                     }
                 </div>
+                <GroceryListAdditem />
             </div>
         )
     }
