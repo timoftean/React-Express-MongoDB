@@ -1,19 +1,15 @@
 var dispatcher = require('./../dispatcher.js');
-
+var helper = require('./../helpers/RestHelper.js');
 
 function GroceryItemStore(){
-    var items = [{
-        name: "Ice Cream"
-    }, {
-        name: "Waffles"
-    }, {
-        name: "Candy",
-        purchased:true
-    }, {
-        name: "Snarks"
-    }];
-
+    var items = [];
     var listeners = [];
+
+    helper.get('api/items')
+        .then(function(data){
+            items = data;
+            triggerListeners();
+        });
 
     function getItems(){
         return items;
@@ -21,6 +17,7 @@ function GroceryItemStore(){
     function addGroceryItem(item){
         items.push(item);
         triggerListeners();
+        helper.post('api/items',item);
     }
 
     function deleteGroceryItem(item){
