@@ -17,25 +17,44 @@ module.exports = function (app){
             console.log("adding items..",item);
             var groceryItem = new GroceryItem(item);
             groceryItem.save(function(err,data){
-               res.status(300).send();
+                if (err) {
+                    res.status(500).send(err);
+                }
+                else {
+                    res.status(300).send("Saved");
+                }
             });
         });
 
     app.route('/api/items/:id')
         .delete(function(req,res){
-            GroceryItem.findOne({
-                _id: req.params.id
-            }).remove();
+            GroceryItem.findById(req.params.id, function(err,item){
+                if(err){
+                    res.status(500).send(err);
+                }
+                else if(item){
+                    item.remove();
+                }
+                else{
+                    res.status(404).send('no book found');
+                }
+            });
         })
         .patch(function(req,res){
             GroceryItem.findOne({
                 _id: req.body._id
             },function(error,doc){
-                for(var key in req.body){
-                    doc[key] = req.body[key];
+                console.log("Patch Error:",error);
+                if(doc){
+                    for(var key in req.body){
+                        doc[key] = req.body[key];
+                    }
+                    doc.save();
+                    res.status(200).send();
                 }
-                doc.save();
-                res.status(200).send();
+                else{
+                    res.status(404).send("not found");
+                }
             })
         });
 };

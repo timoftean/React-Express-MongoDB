@@ -1,10 +1,10 @@
 var mongoose = require ('mongoose');
 var GroceryItem = require('./models/GroceryItem');
-mongoose.connect('mongodb://localhost/grocery',function(){
+mongoose.connect('mongodb://localhost/data/db',function(){
     console.log("connected.");
+    var items = [];
 
-
-    var items = [{
+    items = [{
         name: "Ice Cream"
     }, {
         name: "Waffles"
@@ -17,5 +17,5 @@ mongoose.connect('mongodb://localhost/grocery',function(){
 
     items.forEach(function(item){
         new GroceryItem(item).save();
-    })
+    });
 });
