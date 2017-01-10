@@ -43,7 +43,7 @@ Front-End Website
 
 * [React](https://facebook.github.io/react/) displays content quickly
 * [React](https://facebook.github.io/react/) boostrapts easily to server-generated HTML code
-* [AJAX] requests via [jQuery](https://jquery.com/)
+* AJAX requests via [jQuery](https://jquery.com/)
 * [Browserify]() used to manage dependencies
 
-![alt tag](http://imgur.com/KJH5gHQ)
+![alt tag](http://imgur.com/KJH5gHQ.png)
