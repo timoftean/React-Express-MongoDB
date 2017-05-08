@@ -30,7 +30,7 @@ Run the app (in the app root directory)
 gulp serve
 ```
 
-###Big Picture Overview
+### Big Picture Overview
 
 Back-End Web Application
 
